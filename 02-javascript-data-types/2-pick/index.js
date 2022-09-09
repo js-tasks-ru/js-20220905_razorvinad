@@ -6,11 +6,10 @@
  */
 export const pick = (obj, ...fields) => {
   let nw = {};
+
   for (let fil in fields){
-    for (let key in obj){
-      if (key === fields[fil]){
-        nw[key] = obj[key];
-      }
+    if (obj.hasOwnProperty(fields[fil])){
+      nw[fields[fil]] = obj[fields[fil]];
     }
   }
   return nw;

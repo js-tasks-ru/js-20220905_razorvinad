@@ -9,8 +9,7 @@ export const omit = (obj, ...fields) => {
 
   for (let fil in fields){
     if (obj.hasOwnProperty(fields[fil])){
-      console.log(fields[fil])
-      delete nw[fields[fil]]
+      delete nw[fields[fil]];
     }
   }
   return nw;

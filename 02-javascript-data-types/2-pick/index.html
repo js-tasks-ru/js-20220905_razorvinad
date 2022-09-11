@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>js</title>
+</head>
+<body>
+
+</body>
+<script>
+  const pick = (obj, ...fields) => {
+    let nw = {};
+
+    for (let fil in fields){
+      if (obj.hasOwnProperty(fields[fil])){
+        console.log(fields[fil])
+        nw[fields[fil]] = obj[fields[fil]]
+      }
+    }
+    return nw;
+  };
+
+  const fruits = {
+    apple: 2,
+    orange: 4,
+    banana: 3
+  };
+  console.log(pick(fruits, 'apple', 'banana')); // { apple: 2, banana: 3 }
+</script>
+</html>

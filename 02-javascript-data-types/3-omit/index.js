@@ -5,12 +5,14 @@
  * @returns {object} - returns the new object
  */
 export const omit = (obj, ...fields) => {
-  let nw = obj;
-
-  for (let fil in fields){
-    if (obj.hasOwnProperty(fields[fil])){
-      delete nw[fields[fil]];
+  //создаём новый объект и копируем в него исходный
+  let newObj = {};
+  Object.assign(newObj, obj);
+  //удаляем ненужные свойства из скопированного объекта
+  for (let fil of fields){
+    if (obj.hasOwnProperty(fil)){
+      delete newObj[fil];
     }
   }
-  return nw;
+  return newObj;
 };

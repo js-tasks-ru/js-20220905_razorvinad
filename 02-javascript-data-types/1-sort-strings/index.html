@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS</title>
+</head>
+<body>
+
+</body>
+<script>
+  const str = [['b', 'a', 'c'], 'desc'];
+
+
+  function sortStrings(arr, param = 'asc') {
+    let newArr = [];
+    if (param === 'asc'){
+      arr.sort( (a, b) => a.localeCompare(b) )
+      return arr.sort( (a, b) => {
+        if((a < b) && (a.charAt(0) === b.charAt(0).toUpperCase())){
+          return -1
+        }
+      })
+    }
+    if (param === 'desc'){
+      arr.sort( (a, b) => b.localeCompare(a) )
+      return arr.sort( (a, b) => {
+        if((a > b) && (b.charAt(0) === a.charAt(0).toUpperCase())){
+          return -1
+        }
+      })
+    }
+    newArr = arr.slice();
+    console.log(arr);
+    console.log(newArr);
+
+    return newArr
+  }
+  console.log(sortStrings(str[0], str[1]))
+
+</script>
+</html>

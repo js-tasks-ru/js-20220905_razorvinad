@@ -10,14 +10,14 @@ export function sortStrings(arr, param = 'asc') {
   //выбор параметра для сортировки - прямой или обратный
   switch (param) {
   case 'asc':
-    newArr.sort((a, b) => a.localeCompare(b));
+    newArr.sort((a, b) => a.localeCompare(b, ["ru-RU", "en-US"]));
     return newArr.sort((a, b) => {
       if ((a < b) && (a.charAt(0) === b.charAt(0).toUpperCase())) {
         return -1;
       }
     });
   case 'desc':
-    newArr.sort((a, b) => b.localeCompare(a));
+    newArr.sort((a, b) => b.localeCompare(a, ["ru-RU", "en-US"]));
     return newArr.sort((a, b) => {
       if ((a > b) && (b.charAt(0) === a.charAt(0).toUpperCase())) {
         return -1;

@@ -9,7 +9,7 @@ export const pick = (obj, ...fields) => {
   let newObj = {};
   //перебираем массив ключей для записи в новый объект пар - ключ-значение
   for (const fil of fields){
-    if (Object.hasOwn(obj, fil)){
+    if (obj.hasOwnProperty(fil)){
       newObj[fil] = obj[fil];
     }
   }

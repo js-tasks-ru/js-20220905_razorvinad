@@ -10,7 +10,7 @@ export const omit = (obj, ...fields) => {
   Object.assign(newObj, obj);
   //удаляем ненужные свойства из скопированного объекта
   for (let fil of fields){
-    if (Object.hasOwn(obj, fil)){
+    if (obj.hasOwnProperty(fil)){
       delete newObj[fil];
     }
   }

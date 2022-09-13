@@ -4,5 +4,21 @@
  * @returns {function} - function-getter which allow get value from object by set path
  */
 export function createGetter(path) {
+  const passes = path.split(".");
+  let n = 0;
 
+  return function recursion(object) {
+    let key = passes[n];
+    n++;
+    //проверка на валидность
+    if (object === undefined) {
+      return object;
+    }
+
+    if (key === passes[passes.length - 1]) {//проврка на последнее свойство
+      return object[key];
+    } else {
+      return recursion(object[key]);
+    }
+  };
 }

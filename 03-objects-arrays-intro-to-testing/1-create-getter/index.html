@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    const product = {
+      category: {
+        title: "Goods"
+      }
+    }
+
+
+    function createGetter(path) {
+      const passes = path.split(".");
+      let n = 0;
+
+      return function recursion(object){
+        let key = passes[n]
+        n++;
+        if(passes === undefined){
+          return undefined
+        }
+        if (key === passes[passes.length-1]) {
+          console.log(object[key])
+          return object[key]
+        } else {
+          return recursion(object[key])
+        }
+      }
+    }
+    const getter = createGetter('category.titlee');
+    console.log(getter(product));
+  </script>
+</body>
+</html>

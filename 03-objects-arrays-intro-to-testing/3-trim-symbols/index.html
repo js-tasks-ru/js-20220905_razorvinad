@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function trimSymbols(string, size) {
+    let str = '';
+    let lastSmb = '';
+    let count = 1;
+    let copiString = string.split('');
+    if (size !== 0){
+      for(let smb of copiString){
+        if (smb === lastSmb) {
+          if (count < size) {
+            str = str.concat(smb);
+            count++;
+          }
+        } else {
+          count = 1;
+          str = str.concat(smb);
+        }
+        lastSmb = smb;
+      }
+    }
+    console.log(str)
+    return str;
+  }
+  trimSymbols('xxxaaaaa', 0); // 'xxaa'
+  trimSymbols('xxxaaaaab', 3); // 'xxxaaab'
+</script>
+</body>
+</html>

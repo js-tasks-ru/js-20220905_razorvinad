@@ -4,15 +4,14 @@
  * @returns {object | undefined} - returns new object or undefined if nothing did't pass
  */
 export function invertObj(obj) {
-  const newObj = {...obj};
+  const newObj = {};
   //проверка на валидность
   if (obj === undefined) {
     return obj;
   }
   //перебор объекта и замена свойств на ключи
-  for (let [key, value] of Object.entries(obj)) {
+  for (const [key, value] of Object.entries(obj)) {
     newObj[value] = key;
-    delete newObj[key];
   }
   return newObj;
 }

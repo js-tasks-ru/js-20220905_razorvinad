@@ -7,18 +7,17 @@ export function createGetter(path) {
   const passes = path.split(".");
   let n = 0;
 
-  return function recursion(object) {
-    let key = passes[n];
-    n++;
+  return function newGetter(object) {
     //проверка на валидность
     if (object === undefined) {
       return object;
     }
-
+    let key = passes[n];
+    n++;
     if (key === passes[passes.length - 1]) {//проврка на последнее свойство
       return object[key];
     } else {
-      return recursion(object[key]);
+      return newGetter(object[key]);
     }
   };
 }

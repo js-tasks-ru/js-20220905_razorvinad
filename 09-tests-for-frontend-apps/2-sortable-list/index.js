@@ -2,6 +2,7 @@ export default class SortableList {
   element;
 
   constructor({items = []} = {}) {
+    console.log(items);
     this.items = items;
 
     this.render();

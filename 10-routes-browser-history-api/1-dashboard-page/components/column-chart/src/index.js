@@ -116,6 +116,12 @@ export default class ColumnChart {
     return await this.loadData(from, to);
   }
 
+  remove() {
+    if (this.element) {
+      this.element.remove();
+    }
+  }
+
   destroy() {
     this.element.remove();
   }
